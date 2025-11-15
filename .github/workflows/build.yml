@@ -177,7 +177,7 @@ jobs:
           chmod +x dist/${GAME_FOLDER}/${GAME_EXE}.*
           echo "Copy libraries"
           ls -la dist/
-          mv -f "dist/libs.*" "dist/${GAME_FOLDER}/"
+          mv -f dist/libs.* dist/${GAME_FOLDER}/
           echo "Contents of dist/${GAME_FOLDER}/:"
           ls -la dist/${GAME_FOLDER}
           cd dist
