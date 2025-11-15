@@ -17,8 +17,8 @@ source $controlfolder/control.txt
 [ -f "${controlfolder}/mod_${CFW_NAME}.txt" ] && source "${controlfolder}/mod_${CFW_NAME}.txt"
 get_controls
 
-GAMEBINARY=shamogu
-GAMEDIR=/$directory/ports/shamogu
+GAMEBINARY=lix
+GAMEDIR=/$directory/ports/lix
 exec > >(tee "$GAMEDIR/log.txt") 2>&1
 
 cd $GAMEDIR

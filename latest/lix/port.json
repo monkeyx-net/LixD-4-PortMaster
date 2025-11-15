@@ -1,13 +1,13 @@
 {
   "version": 4,
-  "name": "shamogu.zip",
+  "name": "lix.zip",
   "items": [
-    "Shamogu.sh",
-    "shamogu"
+    "Lix.sh",
+    "lix"
   ],
   "items_opt": [],
   "attr": {
-    "title": "Shamogu",
+    "title": "Lix",
     "porter": [
       "monkeyx-net"
     ],
