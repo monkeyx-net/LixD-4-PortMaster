@@ -103,18 +103,17 @@ jobs:
           mkdir -p dist/libs.${{ matrix.arch }}
           cp bin/${GAME_EXE} dist/${GAME_EXE}-${{ matrix.arch }}
           strip dist/${GAME_EXE}-${{ matrix.arch }} || true
-          sudo find / -name liballegro_acodec.so.5.2 -print
           files=(
-              "/usr/lib/liballegro_acodec.so.5.2"
-              "/usr/lib/liballegro_audio.so.5.2"
-              "/usr/lib/liballegro_font.so.5.2"
-              "/usr/lib/liballegro_image.so.5.2"
-              "/usr/lib/liballegro_primitives.so.5.2"
-              "/usr/lib/liballegro_ttf.so.5.2"
-              "/usr/lib/liballegro.so.5.2"
-              "/usr/lib/libdruntime-ldc-shared.so.106"
-              "/usr/lib/libdumb.so.1"
-              "/usr/lib/libphobos2-ldc-shared.so.106"
+              "/usr/lib/${{ matrix.arch }}-linux-gnu/liballegro_acodec.so.5.2"
+              "/usr/lib/${{ matrix.arch }}-linux-gnu/liballegro_audio.so.5.2"
+              "/usr/lib/${{ matrix.arch }}-linux-gnu/liballegro_font.so.5.2"
+              "/usr/lib/${{ matrix.arch }}-linux-gnu/liballegro_image.so.5.2"
+              "/usr/lib/${{ matrix.arch }}-linux-gnu/liballegro_primitives.so.5.2"
+              "/usr/lib/${{ matrix.arch }}-linux-gnu/liballegro_ttf.so.5.2"
+              "/usr/lib/${{ matrix.arch }}-linux-gnu/liballegro.so.5.2"
+              "/usr/lib/${{ matrix.arch }}-linux-gnu/libdruntime-ldc-shared.so.106"
+              "/usr/lib/${{ matrix.arch }}-linux-gnu/libdumb.so.1"
+              "/usr/lib/${{ matrix.arch }}-linux-gnu/libphobos2-ldc-shared.so.106"
            )
           for file in "${files[@]}"; do
             if [ -f "$file" ]; then
