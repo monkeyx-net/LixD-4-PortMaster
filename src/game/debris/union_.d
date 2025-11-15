@@ -38,7 +38,7 @@ private:
         __traits(classInstanceSize, FlyingTool),
     );
     static assert (objLen > __traits(classInstanceSize, DebrisBase));
-    static assert (8 >= TimedLifeDebris.alignof)
+    static assert (8 >= TimedLifeDebris.alignof);
 
     void[objLen] object = void;
 
