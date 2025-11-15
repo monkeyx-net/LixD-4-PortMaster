@@ -178,7 +178,7 @@ jobs:
           echo "Copy libraries"
           ls -la dist/
           cp -rf dist/libs.* dist/${GAME_FOLDER}/
-          rm dist/libs.*
+          rm -rf dist/libs.*
           echo "Contents of dist/${GAME_FOLDER}/:"
           ls -la dist/${GAME_FOLDER}
           cd dist
