@@ -124,7 +124,7 @@ jobs:
             fi
           done
 
-          tar -czf ${GAME_FOLDER}-linux-${{ matrix.arch }}.tar.gz -C dist ${GAME_EXE}-${{ matrix.arch }}
+          tar -czf ${GAME_FOLDER}-linux-${{ matrix.arch }}.tar.gz -C dist . ${GAME_EXE}-${{ matrix.arch }}
           ls -lh *.tar.gz
 
       - name: Upload binary artifact
