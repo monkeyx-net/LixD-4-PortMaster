@@ -100,9 +100,30 @@ jobs:
         run: |
           GAME_EXE="${{ steps.parse-json.outputs.game_exe }}"
           GAME_FOLDER="${{ steps.parse-json.outputs.game_folder }}"
-          mkdir -p dist
+          mkdir -p dist/libs.${{ matrix.arch }}
           cp bin/${GAME_EXE} dist/${GAME_EXE}-${{ matrix.arch }}
           strip dist/${GAME_EXE}-${{ matrix.arch }} || true
+          files=(
+              "/usr/lib/liballegro_acodec.so.5.2"
+              "/usr/lib/liballegro_audio.so.5.2"
+              "/usr/lib/liballegro_font.so.5.2"
+              "/usr/lib/liballegro_image.so.5.2"
+              "/usr/lib/liballegro_primitives.so.5.2"
+              "/usr/lib/liballegro_ttf.so.5.2"
+              "/usr/lib/liballegro.so.5.2"
+              "/usr/lib/libdruntime-ldc-shared.so.106"
+              "/usr/lib/libdumb.so.1"
+              "/usr/lib/libphobos2-ldc-shared.so.106"
+           )
+          for file in "${files[@]}"; do
+            if [ -f "$file" ]; then
+              cp "$file" "dist/libs.${{ matrix.arch }}/"
+              echo "Copied: $file"
+          else
+             echo "Warning: $file not found"
+            fi
+          done
+
           tar -czf ${GAME_FOLDER}-linux-${{ matrix.arch }}.tar.gz -C dist ${GAME_EXE}-${{ matrix.arch }}
           ls -lh *.tar.gz
 
