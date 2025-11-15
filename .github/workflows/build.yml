@@ -154,7 +154,7 @@ jobs:
           cp -r "latest/${GAME_FOLDER}/." "dist/${GAME_FOLDER}/"
           echo "Copy latest game binaries"
           mv dist/${GAME_EXE}-x86_64 dist/${GAME_FOLDER}/${GAME_EXE}.x86_64
-          mv dist/${GAME_EXE}-arm64 dist/${GAME_FOLDER}/${GAME_EXE}.aarch64
+          mv dist/${GAME_EXE}-aarch64 dist/${GAME_FOLDER}/${GAME_EXE}.aarch64
           chmod +x dist/${GAME_FOLDER}/${GAME_EXE}.*
           echo "Contents of dist/${GAME_FOLDER}/:"
           ls -la dist/${GAME_FOLDER}
