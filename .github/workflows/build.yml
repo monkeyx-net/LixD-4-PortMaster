@@ -167,8 +167,6 @@ jobs:
           ls -la artifacts/
           ls -la dist/
           ls -la latest/
-          echo "Remove previous aarch64 and x86_64 binaries"
-          rm -f "latest/${GAME_FOLDER}/${GAME_EXE}.aarch64" "latest/${GAME_FOLDER}/${GAME_EXE}.x86_64"
           echo "Copy ${GAME_START} from latest to dist folder"
           cp "latest/$GAME_START" "dist/"
           echo "Copy meta information and supporting files/folders"
@@ -177,6 +175,9 @@ jobs:
           mv dist/${GAME_EXE}-x86_64 dist/${GAME_FOLDER}/${GAME_EXE}.x86_64
           mv dist/${GAME_EXE}-aarch64 dist/${GAME_FOLDER}/${GAME_EXE}.aarch64
           chmod +x dist/${GAME_FOLDER}/${GAME_EXE}.*
+          echo "Copy libraries"
+          mv -f "dist/libs.*" "latest/${GAME_FOLDER}/"
+
           echo "Contents of dist/${GAME_FOLDER}/:"
           ls -la dist/${GAME_FOLDER}
           cd dist
