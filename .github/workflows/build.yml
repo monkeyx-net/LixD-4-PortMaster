@@ -103,6 +103,7 @@ jobs:
           mkdir -p dist/libs.${{ matrix.arch }}
           cp bin/${GAME_EXE} dist/${GAME_EXE}-${{ matrix.arch }}
           strip dist/${GAME_EXE}-${{ matrix.arch }} || true
+          sudo find / -name liballegro_acodec.so.5.2 -print
           files=(
               "/usr/lib/liballegro_acodec.so.5.2"
               "/usr/lib/liballegro_audio.so.5.2"
