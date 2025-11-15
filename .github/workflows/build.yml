@@ -176,8 +176,7 @@ jobs:
           mv dist/${GAME_EXE}-aarch64 dist/${GAME_FOLDER}/${GAME_EXE}.aarch64
           chmod +x dist/${GAME_FOLDER}/${GAME_EXE}.*
           echo "Copy libraries"
-          mv -f "dist/libs.*" "latest/${GAME_FOLDER}/"
-
+          mv -f "dist/libs.*" "dibs/${GAME_FOLDER}/"
           echo "Contents of dist/${GAME_FOLDER}/:"
           ls -la dist/${GAME_FOLDER}
           cd dist
