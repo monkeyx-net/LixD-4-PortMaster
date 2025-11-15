@@ -72,10 +72,9 @@ jobs:
 
       - name: Install D Lang repository
         run: |
-          sudo wget https://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list
-          sudo apt-get update --allow-insecure-repositories
-          sudo apt-get -y --allow-unauthenticated install --reinstall d-apt-keyring
-          sudo apt-get update
+          echo "deb https://pkg.dlang.org/apt $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/dlang.list
+          wget -qO- https://dlang.org/d-key.gpg | sudo tee /etc/apt/trusted.gpg.d/d-key.asc
+          sudo apt update
 
       - name: Install dependencies and Go
         run: |
