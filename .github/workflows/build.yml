@@ -70,12 +70,6 @@ jobs:
             ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
 
-      - name: Install D Lang repository
-        run: |
-          echo "deb https://pkg.dlang.org/apt $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/dlang.list
-          wget -qO- https://dlang.org/d-keyring.gpg | sudo tee /etc/apt/trusted.gpg.d/d-key.asc
-          sudo apt update
-
       - name: Install dependencies and Go
         run: |
           sudo add-apt-repository -y ppa:longsleep/golang-backports
