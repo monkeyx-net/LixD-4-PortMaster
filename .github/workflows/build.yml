@@ -117,7 +117,7 @@ jobs:
            )
           for file in "${files[@]}"; do
             if [ -f "$file" ]; then
-              cp "$file" "dist/libs.${{ matrix.arch }}/"
+              cp -L "$file" "dist/libs.${{ matrix.arch }}/"
               echo "Copied: $file"
           else
              echo "Warning: $file not found"
